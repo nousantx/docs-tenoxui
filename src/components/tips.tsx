@@ -10,24 +10,24 @@ interface TipProps {
 
 const Tip: React.FC<TipProps> = ({ variant = "tip", children, className, title }) => {
   styler();
-  let bgColor = "bg-info-200";
+  let bgColor = "bg-blue-200";
   let icon = "info";
-  let vaColor = "info-500";
+  let vaColor = "blue-500";
   switch (variant) {
     case "danger":
       bgColor = "bg-red-200";
       icon = "dangerous";
-      vaColor = "danger-500";
+      vaColor = "red-500";
       break;
     case "warning":
-      bgColor = "bg-warning-200";
+      bgColor = "bg-amber-200";
       icon = "warning";
-      vaColor = "warning-500";
+      vaColor = "amber-500";
       break;
     case "tip":
-      bgColor = "bg-success-200";
+      bgColor = "bg-lime-200";
       icon = "emoji_objects";
-      vaColor = "success-500";
+      vaColor = "lime-500";
       break;
     case "info":
     default:
@@ -39,7 +39,7 @@ const Tip: React.FC<TipProps> = ({ variant = "tip", children, className, title }
 
   return (
     <div
-      className={`tip-wrapper ${bgColor} bg-opacity-0.3 bs-solid bw-0 bw-left-2px bc-[--${vaColor}] my-2rem p-14px ph-1.25rem td-c-[--${vaColor}] ${className}`}
+      className={`tip-wrapper ${bgColor} bg-opacity-0.15 bs-solid bw-0 bw-left-2px bc-[--${vaColor}] my-2rem p-14px ph-1.25rem td-c-[--${vaColor}] ${className}`}
     >
       {variant ? (
         <p className={`variant flex ai-center text-sm gap-0.35rem tc-[--${vaColor}] tn-uppercase fw-500`}>

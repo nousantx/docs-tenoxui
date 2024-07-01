@@ -28,6 +28,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "nosant-icon": "^1.1.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.24.0",
     "react-syntax-highlighter": "^15.5.0",
     "tenoxui": "^0.11.0-alpha.8",

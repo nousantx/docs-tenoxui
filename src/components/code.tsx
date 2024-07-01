@@ -24,13 +24,25 @@ interface Code {
   title?: string;
   lang: string;
   className?: string;
+  linesToHighlight?: number[];
+  startingLineNumber?: number;
   codeOnly?: boolean;
   showNumber?: boolean;
   isWrap?: boolean;
   children: string | ReactNode;
 }
 
-const Code: React.FC<Code> = ({ title, lang, children, codeOnly, showNumber, isWrap, className }) => {
+const Code: React.FC<Code> = ({
+  title,
+  lang,
+  children,
+  codeOnly,
+  linesToHighlight = [],
+  startingLineNumber = 1,
+  showNumber,
+  isWrap,
+  className
+}) => {
   const [copy, setCopy] = useState(false);
   const codeString = React.Children.toArray(children).join("");
   styler(copy);
@@ -38,26 +50,26 @@ const Code: React.FC<Code> = ({ title, lang, children, codeOnly, showNumber, isW
     <div className={`w-full relative ${className}`}>
       {/* {copy && ( */}
       <div
-        className={`position-fixed t-4.5rem r--100% bg-neutral-100 text-neutral-900 ta-center br-4px p-8px ph-1rem z-9999 d-flex flex-parent-center gap-8px tr-prop-all tr-time-0.3s tr-timing-ease z-9999 ${
+        className={`position-fixed t-2rem r--100% bg-neutral-800 text-neutral-100 ta-center br-4px p-8px px-1rem z-9999 d-flex flex-parent-center gap-8px tr-prop-all tr-time-0.3s tr-timing-ease z-9999 ${
           copy ? "opa-1 r-1rem" : "opa-0 r--100%"
         }`}
       >
-        <span className="ms-sharp text-accent-500 text-lg">inventory</span>
+        <span className="ms-sharp text-primary-500 text-lg">inventory</span>
         Code copied successfully!
       </div>
       {!codeOnly ? (
-        <div className={`w-full flex jc-[space-between] items-center bg-neutral-200 p-10px radius-top-4px`}>
+        <div className={`w-full flex jc-[space-between] items-center bg-neutral-800 p-10px radius-top-4px`}>
           <p className="text-sm font-medium flex flex-parent-center gap-6px">
-            <span className="ms-sharp text-base text-accent-500">draft</span>
+            <span className="ms-sharp text-base text-primary-500">draft</span>
             {title || lang}
           </p>
           {copy ? (
-            <button className="btn flex flex-parent-center gap-6px text-neutral-800">
+            <button className="btn flex flex-parent-center gap-6px text-neutral-200">
               <span className="ms-sharp fs-16px">done</span> <p className="text-sm font-medium">Copied</p>
             </button>
           ) : (
             <button
-              className="btn flex flex-parent-center gap-6px text-neutral-800"
+              className="btn flex flex-parent-center gap-6px text-neutral-200"
               onClick={() => {
                 const textarea = document.createElement("textarea");
                 textarea.value = codeString;
@@ -83,10 +95,17 @@ const Code: React.FC<Code> = ({ title, lang, children, codeOnly, showNumber, isW
       ) : null}
       <SyntaxHighlighter
         showLineNumbers={showNumber}
+        startingLineNumber={startingLineNumber}
         wrapLongLines={isWrap}
         language={lang}
-        style={atomOneDark}
-        className={`p-14px relative ${codeOnly ? "br-0.225rem" : "radius-bottom-0.225rem"} `}
+        className={`hljs p-14px relative lh-1.6 ${codeOnly ? "br-0.225rem" : "radius-bottom-0.225rem"} `}
+        lineProps={(lineNumber: number) => {
+          const style: React.CSSProperties = { display: "block", width: "fit-content" };
+          if (linesToHighlight.includes(lineNumber)) {
+            style.backgroundColor = "rgb(var(--tx_neutral-400) / 0.4)";
+          }
+          return { style };
+        }}
       >
         {codeString}
       </SyntaxHighlighter>

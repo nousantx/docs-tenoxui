@@ -1,0 +1,142 @@
+import Code from "@component/code"
+import Tips from "@component/tips"
+
+# How it works?
+
+This page will explain how tenoxui works, the concepts, and more.
+
+## Adding `type` and `property`
+
+First of all, of course we need to add some types (we call prefix / shorthand of the property like `m` for `margin` property as type) before we can use the tenoxui css. 
+
+To add type you need, you can use `use` function, like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  codeOnly>{`use({
+  property: [
+    {
+      m: "margin",
+      fs: "fontSize",
+      fw: "fontWeight",
+      box: ["width", "height"]
+    }
+  ]
+});`}</Code>
+
+For example, we added `fs` as `font-size` shorthand. After defining it, you can use it directly to your element classname, like 
+
+## Applying Styles
+
+TenoxUI used DOM to manipulate the styles. As an utility-first CSS framework, tenoxui will scan all element's classname to get the type and its value, it will matched using `Regexp` to match all types, all possible values, units, and prefix. But overall, tenoxui will need class name like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  codeOnly>{`type-{value}`}</Code>
+
+As the example, it will looks like this :
+
+<Code
+  lang="html"
+  className="my-1rem"
+  codeOnly>{`<h1 class="fs-2rem fw-600">Hello World!</h1>`}</Code>
+
+The `fs` is the `type` and `2rem` is its `value`.
+
+TenoxUI is a CSS framework that will give styles through element style or called `inline-style`. So, it won't generate new class name or new css file, the styles will added directly to the element style (i think this should considered as its weakness). When rendered to web browser, the element will looks like this :
+
+<Code
+  lang="html"
+  className="my-1rem"
+  codeOnly>{`<h1 
+  class="fs-2rem fw-600" 
+  style="font-size: 2rem; font-weight: 600;"
+>
+  Hello World!
+</h1>`}</Code>
+
+## Template
+
+### HTML Template
+
+This is a simple HTML boilerplate you can use, just copy and paste this :
+
+<Code
+  lang="html"
+  className="my-1rem">{`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TenoxUI Boilerplate</title>
+    <!-- tenoxui script -->
+    <script src="https://cdn.jsdelivr.net/npm/tenoxui"></script>
+    <!-- tenoxui default property library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tenoxui/property"></script>
+  </head>
+  <body>
+    <main class="h-100vh d-flex flex-parent-center">
+      <h1 class="tc-#ccf654">Hello World!</h1>
+    </main>
+
+    <!-- script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // adding property
+        use({ property: [property] });
+  
+        // applying styles directly
+        makeStyles({
+          body: "bg-#21272f tc-#e4e6e8 family-[sans-serif] m-0"
+        });
+  
+        // init tenoxui
+        tenoxui();
+      });
+    </script>
+  </body>
+</html>`}</Code>
+
+### React JS Template
+
+In ReactJS, you need to install tye dependencies first :
+
+<Code
+  lang="bash"
+  className="my-1rem"
+  codeOnly>{`npm i tenoxui @tenoxui/property --save-dev`}</Code>
+
+Your `App.jsx` file :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  title="App.jsx">{`import { useLayoutEffect } from "react";
+import tenoxui, { use, makeStyles } from "tenoxui";
+import property from "@tenoxui/property";
+
+const App = () => {
+  useLayoutEffect(() => {
+    // use tenoxui property library
+    use({ property: [property] });
+
+    // apply styles directly
+    makeStyles({
+      body: "bg-#21272f tc-#e4e6e8 family-[sans-serif] m-0 p-2rem"
+    });
+
+    // init tenoxui
+    tenoxui();
+  }, []);
+
+  return <h1 className="tc-#ccf654">Hello World!</h1>;
+};
+
+export default App;`}</Code>
+
+<Tips variant="info">
+using `useEffect` or `useLayoutEffect` hooks to apply the style to the elements, because tenoxui using DOM to handle the styling. It's basically just imitating fast reload xD.
+</Tips>

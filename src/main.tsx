@@ -4,5 +4,6 @@ import "nosant-icon";
 import "./style/css/index.css";
 import "./style/css/color.css";
 import "./style/css/google-icons.css";
+import "./style/css/hljs-tokyo-night.css";
 
 createRoot(document.getElementById("root")!).render(<Routes />);

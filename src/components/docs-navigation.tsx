@@ -38,7 +38,7 @@ const DocLink: React.FC<{
       {/* Edit this page */}
       <div className="w-full flex mb-2rem">
         <a
-          className="text-sm flex-center gap-6px tc-[--accent-500]"
+          className="text-sm flex-center gap-6px tc-[--primary-500]"
           href={githubEditLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -52,12 +52,12 @@ const DocLink: React.FC<{
         {prev && (
           <Link
             to={prev}
-            className={`doc-link-bottom flex ai-[flex-start] fd-column text-base pl-12px border bw-left-1px bc-[--accent-500] ${
+            className={`doc-link-bottom flex ai-[flex-start] fd-column text-base pl-12px border bw-left-1px bc-[--primary-500] ${
               !next ? "mr-auto" : ""
             }`}
           >
             <p className="text-base flex-center gap-6px font-normal">
-              <span className="ms-sharp fs-18px tc-[--accent-500]">{prevIcon || "chevron_left"}</span>
+              <span className="ms-sharp fs-18px tc-[--primary-500]">{prevIcon || "chevron_left"}</span>
               {prevTitle || generateLinkTitle(prev)}
             </p>
             <p className="text-xs flex-center tc-[--neutral-500]">
@@ -69,13 +69,13 @@ const DocLink: React.FC<{
         {next && (
           <Link
             to={next}
-            className={`doc-link-bottom flex ai-[flex-end] fd-column text-base px-12px border bw-right-1px bc-[--accent-500] ${
+            className={`doc-link-bottom flex ai-[flex-end] fd-column text-base px-12px border bw-right-1px bc-[--primary-500] ${
               !prev ? "ml-auto" : ""
             }`}
           >
             <p className="text-base flex-center gap-6px font-normal">
               {nextTitle || generateLinkTitle(next)}
-              <span className="ms-sharp fs-18px tc-[--accent-500]">{nextIcon || "chevron_right"}</span>
+              <span className="ms-sharp fs-18px tc-[--primary-500]">{nextIcon || "chevron_right"}</span>
             </p>
             <p className="text-xs flex-center tc-[--neutral-500]">
               {/* <span className="ms-sharp text-xs">chevron_left</span> */}

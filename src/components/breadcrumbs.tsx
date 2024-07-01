@@ -18,7 +18,7 @@ const Breadcrumbs: React.FC<{ pageTitle?: string }> = ({ pageTitle }) => {
   return (
     <div className="flex-center jc-[flex-start] gap-10px flex-wrap-wrap mb-0">
       <Link to="/" className="box-30px flex-center">
-        <span className="ms-sharp fs-20px tc-[--accent-500]">home</span>
+        <span className="ms-sharp fs-20px tc-[--primary-500]">home</span>
       </Link>
       <span className="ms-sharp fs-16px tc-[--neutral-700]">chevron_right</span>
       {pathnames.map((name, index) => {

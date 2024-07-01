@@ -1,0 +1,23 @@
+import Code from "@component/code";
+
+# What's this?
+
+TenoxUI is a Utility-First CSS Framework built for elevate web development by enhancing speed and efficiency by delivering various collection of utility-first classes.
+
+TenoxUI not providing any defined class names such as `mt-1`, `h-12`, `container`, and more. You make your own class from value you desired. So, instead of using defined value like that, you can use class names like `mt-6px`, `p-1.5rem`, `h-100svh`, and more.
+
+## Core Concept
+
+TenoxUI is a styling framework that work using DOM manipulation to apply
+the styles into element. It will pair the type and value from a
+classname as style, just like this :
+
+<Code lang="javascript" className="my-1rem" codeOnly>{`{type}-{value}`}</Code>
+
+So, the possibilities of values is unlimited, we're not defining any value, you will the one who will defining your own styles. The example is like this :
+
+<Code lang="html" className="mt-1rem mb-2rem" codeOnly>{`<h1 class="fs-2.3rem fw-800">Hello World!</h1>`}</Code>
+
+### Breakdown
+
+In the code above, it have `fs` class name, this is shorthand/type to set `font-size` property, it also has `2.3rem` as value, so it will set `font-size: 2.3rem;` for that element. As for `fw` type, this is shorthand for `font-weight` property.

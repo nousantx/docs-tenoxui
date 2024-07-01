@@ -1,3 +1,5 @@
+// import Code from "@component/code";
+
 const Docs = () => {
   return (
     <>

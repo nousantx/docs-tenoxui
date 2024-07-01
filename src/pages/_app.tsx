@@ -15,7 +15,17 @@ const Navbar = () => {
 };
 
 const Footer = () => {
-  return <footer className="">Global Footer</footer>;
+  return (
+    <footer className="p-2rem py-1.5rem w-mx-1440px mx-auto bw-0 bw-top-1px bs-solid border-neutral-500 border-opacity-0.3">
+      <p className="text-xs text-neutral-400 family-poppins font-medium">
+        &copy; 2024 NOuSantx. Built with{" "}
+        <a href="https://tenoxui.web.app" className="td-l-underline hover:td-l-none td-c-[--primary-500] tr-time-200ms">
+          TenoxUI
+        </a>
+        .
+      </p>
+    </footer>
+  );
 };
 
 const App = () => {

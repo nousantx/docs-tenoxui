@@ -6,6 +6,7 @@ export const styles = {
   "p,a": "family-[gabarito,sans-serif]",
   a: "tc-inherit td-none lh-1.4",
   "p, a[class]": ".text-slate-200",
+  ".poppins": "family-poppins",
   h1: "fs-2.5rem lh-1 ls--0.040em  fw-700",
   h2: "fs-2rem lh-2.25rem ls--0.030em fw-600",
   h3: "fs-1.50rem lh-2rem ls--0.025em fw-600",

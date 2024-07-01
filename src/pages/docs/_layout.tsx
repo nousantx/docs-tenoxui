@@ -1,6 +1,8 @@
 import { useState, useLayoutEffect } from "react";
-import {  NavLink, Outlet } from "react-router-dom";
-import { styler } from "../../style/styler";
+import { NavLink, Outlet } from "react-router-dom";
+import { styler } from "@styler";
+import Breadcrumbs from "@component/breadcrumbs";
+import DocLink from "@component/docs-navigation";
 // import { makeStyle } from "tenoxui";
 
 export const SidebarContent = () => {
@@ -53,7 +55,7 @@ const Layout = () => {
 
   return (
     <article className="relative d-flex max-xl:fd-column xl:fd-row">
-      <header className="max-xl:flex-grow-0 xl:flrx-grow-1 flex-shrink-1 flex-basis-15% position-sticky max-md:h-auto md:h-100vh t-0 p-2rem py-1rem z-999 bg-neutral-100 border-[1px\_solid\_var(--neutral-300)] max-md:bw-right-0 bw-left-0 md:bw-right-1px">
+      <header className="max-xl:flex-grow-0 xl:flrx-grow-1 flex-shrink-1 flex-basis-15% position-sticky max-md:h-auto md:h-100vh t-0 p-2rem max-xl:py-1rem xl:py-2rem z-999 bg-neutral-100 border-[1px\_solid\_var(--neutral-300)] max-md:bw-right-0 bw-left-0 md:bw-right-1px">
         <button onClick={toggleSidebar} className="max-xl:d-block xl:d-none">
           Menu
         </button>
@@ -74,14 +76,23 @@ const Layout = () => {
         </nav>
       </header>
       <section className="flex-grow-1 flex-shrink-1 flex-basis-50% p-2rem">
-        <header className="mb-2rem">header</header>
+        <header className="mb-2rem">
+          <Breadcrumbs />
+        </header>
         {/* Main Content */}
         <div className="flex jc-[space-between]">
-          <article className="w-full w-mx-800px h-200vh">
+          <article className="w-full docs-wrapper">
             <Outlet />
           </article>
         </div>
-        <footer className="mt-3rem">footer</footer>
+        <footer className="mt-3rem">
+          <DocLink
+            prev="/docs/classes/border"
+            prevIcon="border_style"
+            next="/docs/classes/border"
+            nextIcon="border_style"
+          />
+        </footer>
       </section>
       <aside className="flex-grow-0 flex-shrink-1 flex-basis-15% position-sticky t-0 p-2rem h-100vh max-2xl:d-none 2xl:d-block">
         Hello

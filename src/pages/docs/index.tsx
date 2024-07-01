@@ -4,7 +4,10 @@ const Docs = () => {
   return (
     <>
       <h1>TenoxUI Documentation</h1>
-      <p>Welcome to tenoxui documentation page, here you will lorem ipsumed correctly.</p>
+      <p>
+        Welcome to tenoxui documentation page, here you will lorem ipsumed
+        correctly.
+      </p>
     </>
   );
 };

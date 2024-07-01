@@ -10,10 +10,13 @@ const Home = () => {
           <div className="flex-[1\_1\_500px] bg-blue-100">
             <h1 className="w-mx-600px">A CSS Framework Without CSS File!</h1>
             <p className="mt-1.2rem text-base">
-              A utility-first CSS framework, styles handled in javascript, and applied through{" "}
-              <code>inline-styles</code>. Less than <code className="">5kb</code> and it
+              A utility-first CSS framework, styles handled in javascript, and
+              applied through <code>inline-styles</code>. Less than{" "}
+              <code className="">5kb</code> and it
             </p>
-            <Link to="/docs" className="btn">Docs</Link>
+            <Link to="/docs" className="btn">
+              Docs
+            </Link>
           </div>
           <div className="flex-[1\_1\_500px] p-2rem bg-red-100"></div>
         </header>

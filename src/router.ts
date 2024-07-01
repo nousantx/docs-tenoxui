@@ -7,6 +7,7 @@ export type Path =
   | `/`
   | `/docs`
   | `/docs/classed/rebo`
+  | `/docs/content`
 
 export type Params = {
   

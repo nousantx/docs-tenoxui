@@ -520,4 +520,54 @@
   --accent-700: rgb(28 8 142 / var(--opacity, 1));
   --accent-800: rgb(11 3 90 / var(--opacity, 1));
   --accent-900: rgb(2 1 38 / var(--opacity, 1));
+
+  /* Info: Huelveño Horizon */
+  --info-100: #f2f8ff;
+  --info-200: #b9ddff;
+  --info-200-opa: #b9ddff40;
+  --info-300: #7fc6fc;
+  --info-400: #45b3f5;
+  --info-500: #0ea3e8;
+  --info-600: #0589b8;
+  --info-700: #016c87;
+  --info-800: #004a57;
+  --info-900: #002326;
+
+  /* Danger: Redsurrection */
+  --danger-100: #fff2f2;
+  --danger-200: #feb8b8;
+  --danger-200-opa: #feb8b840;
+  --danger-300: #fa7d7d;
+  --danger-400: #ee4141;
+  --danger-500: #d60b0e;
+  --danger-600: #aa0410;
+  --danger-700: #7e0112;
+  --danger-800: #520010;
+  --danger-900: #26000a;
+
+  /* Success: King Lizard */
+  --success-100: #f6fff2;
+  --success-200: #d6fec1;
+  --success-200-opa: #d6fec140;
+  --success-300: #bafb8f;
+  --success-400: #9ff05b;
+  --success-500: #85db2a;
+  --success-600: #6aae0e;
+  --success-700: #538103;
+  --success-800: #3a5400;
+  --success-900: #1d2600;
+
+  /* Primary: Apricot Glazed Chicken */
+  --warning-100: #fffef2;
+  --warning-200: #fff3be;
+  --warning-200-opa: #fff3be40;
+  --warning-300: #fde288;
+  --warning-400: #f7c753;
+  --warning-500: #eda51f;
+  --warning-600: #bb730a;
+  --warning-700: #8a4a02;
+  --warning-800: #582a00;
+  --warning-900: #261000;
+
+
 }

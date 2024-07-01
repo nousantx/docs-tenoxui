@@ -14,13 +14,16 @@ export function styler(...props: any) {
           "border-opacity": "--border-opacity",
           tr: "transition",
           border: "border",
+          bc: "borderColor",
+          "td-l": "textDecorationLine",
+          "td-c": "textDecorationColor",
           visibility: "visibility"
         }
       ],
       values: values,
       breakpoint: breakpoints
     });
-    makeStyles(colors, styles);
+    makeStyles(colors, styles, colors);
     tenoxui();
   }, [props]);
 }

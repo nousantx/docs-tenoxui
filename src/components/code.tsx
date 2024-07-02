@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 import { styler } from "@styler";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import javascript from "react-syntax-highlighter/dist/esm/languages/hljs/javascript";
 import typescript from "react-syntax-highlighter/dist/esm/languages/hljs/typescript";
 import shell from "react-syntax-highlighter/dist/esm/languages/hljs/shell";

@@ -10,6 +10,7 @@ export type Path =
   | `/docs/classes/rebo`
   | `/docs/core/introduction`
   | `/docs/overview`
+  | `/docs/test`
 
 export type Params = {
   

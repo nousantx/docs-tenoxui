@@ -4,10 +4,8 @@ import { Helmet } from "react-helmet";
 import { styler } from "@styler";
 import Breadcrumbs from "@component/breadcrumbs";
 import DocLink from "@component/docs-navigation";
-import { toKebabCase } from "@/utils/kebab-case";
 import OnThisPage from "./_components/on-this-page";
 import DocsSidebar from "./_components/docs-sidebar";
-import SidebarContent from "./_components/sidebar-content";
 import { generateTitle } from "@/utils/get-title";
 
 const Layout = () => {

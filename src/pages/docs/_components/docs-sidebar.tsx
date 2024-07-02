@@ -1,11 +1,9 @@
 import { useState, useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { styler } from "@styler";
 import SidebarContent from "./sidebar-content";
 
 const DocsSidebar = () => {
   const [sidebar, setSidebar] = useState(true);
-  const location = useLocation();
 
   const toggleSidebar = () => {
     setSidebar(!sidebar);

@@ -3,6 +3,12 @@ import { useLocation } from "react-router-dom";
 import { styler } from "@styler";
 import { toKebabCase } from "@/utils/kebab-case";
 
+interface Heading {
+  text: string;
+  id: string;
+  level: number;
+}
+
 const OnThisPage = () => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const location = useLocation();
@@ -12,7 +18,7 @@ const OnThisPage = () => {
     if (!mainContent) return;
     const headingTags = mainContent.querySelectorAll("h1, h2, h3, h4");
 
-    const extractedHeadings = Array.from(headingTags).map((heading) => {
+    const extractedHeadings = Array.from(headingTags).map(heading => {
       const text = (heading as HTMLElement).innerText;
       const id = toKebabCase(text);
       (heading as HTMLElement).id = id; // Assign the generated id to the heading
@@ -20,7 +26,7 @@ const OnThisPage = () => {
       return {
         text,
         id,
-        level: parseInt((heading as HTMLElement).tagName.charAt(1)), // Type assertion to HTMLElement
+        level: parseInt((heading as HTMLElement).tagName.charAt(1)) // Type assertion to HTMLElement
       };
     });
 
@@ -35,9 +41,7 @@ const OnThisPage = () => {
     if (headings.length === 0) {
       return (
         <>
-          <p className="text-lg font-medium tc-[neutral-800]">
-            Nothing to show
-          </p>
+          <p className="text-lg font-medium tc-[neutral-800]">Nothing to show</p>
         </>
       );
     } else {

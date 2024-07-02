@@ -1,29 +1,17 @@
 import { useLayoutEffect } from "react";
 import tenoxui, { use, makeStyles } from "tenoxui";
-import property from "@tenoxui/property";
+import { globalProps } from "./lib/props.ts";
 import { colors, styles, breakpoints, values } from "./lib/styles";
+import { utility } from "./lib/utility";
 
 export function styler(...props: any) {
   useLayoutEffect(() => {
     use({
-      property: [
-        property,
-        {
-          "text-opacity": "--text-opacity",
-          "bg-opacity": "--bg-opacity",
-          "border-opacity": "--border-opacity",
-          tr: "transition",
-          border: "border",
-          bc: "borderColor",
-          "td-l": "textDecorationLine",
-          "td-c": "textDecorationColor",
-          visibility: "visibility"
-        }
-      ],
+      property: globalProps,
       values: values,
       breakpoint: breakpoints
     });
-    makeStyles(colors, styles, colors);
+    makeStyles(colors, styles, utility, colors);
     tenoxui();
   }, [props]);
 }

@@ -1,9 +1,5 @@
-
-
 const _404 = () => {
-  return (
-    <div>Not Found</div>
-  )
-}
+  return <div>Not Found</div>;
+};
 
-export default _404
+export default _404;

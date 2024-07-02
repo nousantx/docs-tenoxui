@@ -91,6 +91,7 @@ This is a simple HTML boilerplate you can use (yet), just copy and paste this to
         tenoxui();
       });
     </script>
+
   </body>
 </html>`}</Code>
 
@@ -114,9 +115,9 @@ import tenoxui, { use, makeStyles } from "tenoxui";
 import property from "@tenoxui/property";
 
 const App = () => {
-  useLayoutEffect(() => {
-    // use tenoxui property library
-    use({ property: [property] });
+useLayoutEffect(() => {
+// use tenoxui property library
+use({ property: [property] });
 
     // apply styles directly
     makeStyles({
@@ -125,9 +126,10 @@ const App = () => {
 
     // init tenoxui
     tenoxui();
-  }, []);
 
-  return <h1 className="tc-#ccf654">Hello World!</h1>;
+}, []);
+
+return <h1 className="tc-#ccf654">Hello World!</h1>;
 };
 
 export default App;`}</Code>

@@ -7,8 +7,6 @@ const DocsSidebar = () => {
   const [sidebar, setSidebar] = useState(true);
   const location = useLocation();
 
-  
-
   const toggleSidebar = () => {
     setSidebar(!sidebar);
   };

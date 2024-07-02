@@ -1,4 +1,4 @@
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { styler } from "@styler";
@@ -11,14 +11,14 @@ import SidebarContent from "./_components/sidebar-content";
 import { generateTitle } from "@/utils/get-title";
 
 const Layout = () => {
-  const location = useLocation()
+  const location = useLocation();
   styler();
-  
+
   useEffect(() => {
     const title = generateTitle(location.pathname);
     document.title = title;
   }, [location]);
-  
+
   return (
     <>
       <Helmet>

@@ -7,7 +7,7 @@ This page will explain how tenoxui works, the concepts, and more.
 
 ## Adding `type` and `property`
 
-First of all, of course we need to add some types (we call prefix / shorthand of the property like `m` for `margin` property as type) before we can use the tenoxui css.
+First of all, of course we need to add some types (we call prefix / shorthand of the property like `m` for `margin` property as `type`) before we can use the tenoxui css.
 
 To add type you need, you can use `use` function, like this :
 
@@ -51,9 +51,11 @@ TenoxUI is a CSS framework that will give styles through element style or called
 
 ## Template
 
+There's still no stable or correct ways to use tenoxui, we still experimenting for the best usage of tenoxui. Since it uses `DOM` to work with, the styles must loaded immediately after the page fire up. But, try tenoxui with `react + vite`. Here's the simple boilerplate you can ise
+
 ### HTML Template
 
-This is a simple HTML boilerplate you can use, just copy and paste this :
+This is a simple HTML boilerplate you can use (yet), just copy and paste this to your code editor :
 
 <Code
   lang="html"
@@ -89,13 +91,12 @@ This is a simple HTML boilerplate you can use, just copy and paste this :
         tenoxui();
       });
     </script>
-
   </body>
 </html>`}</Code>
 
 ### React JS Template
 
-In ReactJS, you need to install tye dependencies first :
+Install the dependencies :
 
 <Code
   lang="bash"
@@ -113,9 +114,9 @@ import tenoxui, { use, makeStyles } from "tenoxui";
 import property from "@tenoxui/property";
 
 const App = () => {
-useLayoutEffect(() => {
-// use tenoxui property library
-use({ property: [property] });
+  useLayoutEffect(() => {
+    // use tenoxui property library
+    use({ property: [property] });
 
     // apply styles directly
     makeStyles({
@@ -124,10 +125,9 @@ use({ property: [property] });
 
     // init tenoxui
     tenoxui();
+  }, []);
 
-}, []);
-
-return <h1 className="tc-#ccf654">Hello World!</h1>;
+  return <h1 className="tc-#ccf654">Hello World!</h1>;
 };
 
 export default App;`}</Code>

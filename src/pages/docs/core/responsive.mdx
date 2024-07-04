@@ -1,0 +1,79 @@
+import Code from "@code"
+import DocLink from "@nav"
+import {Link} from "react-router-dom"
+
+# Responsive Design
+
+TenoxUI support responsive design by adding the breakpoints prefix to the elements.
+
+## Usage
+
+Adding breakpoint prefix to the element :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="max-md:bg-red md:bg-blue lg:bg-green"></div>`}</Code>
+
+## Important
+If you want to use responsive design using tenoxui, you must define your classes like this :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="bg-red max-md:bg-red md:bg-blue lg:bg-green"></div>`}</Code>
+
+Breakdown :
+
+- `bg-red` : initial style.
+- `max-md:bg-red` : fallback for smaller than md.
+- `md:bg-blue` : blue background on medium screen.
+
+You need to know :
+
+Since tenoxui using JavaScript for handling all of the styles, the responsive design is also handled by JavaScript. If you want to add the responsive breakpoint to your element, you `must` avoid this kind of class names :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="bg-red md:bg-blue"></div>`}</Code>
+
+It didn't know the styles that need to add below the medium screen. So, if you use that, the background will `stay` blue when your screen get smaller. Instead, use this :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="bg-red max-md:bg-red md:bg-blue"></div>`}</Code>
+
+Other tips, always add the breakpoint for smaller screen than tye breakpoint you use :
+
+If the breakpoint started with `md` add `max-md:` with the same classname as initial style, in this case is `bg-red` :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="bg-red max-md:bg-red md:bg-blue"></div>`}</Code>
+  
+It's same for other breakpoints, if you use `lg` for example :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="bg-red max-lg:bg-red lg:bg-blue"></div>`}</Code>
+
+We're sorry if it makes your class name more larger, but this is only handled full by JavaScript.
+
+## Customizing Breakpoints
+
+You can use <Link to="/docs/function/use">`use`</Link> function to customize your breakpoints. Example :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`use({
+  property: [...],
+  breakpoint: [
+    { name: "xxl", min: 1440 },
+    { name: "xs", min: 0, max: 554 },
+  ]
+});`}</Code>
+
+<DocLink
+  prev="/docs/classes"
+  prevIcon="style"
+  next="/docs/classes/background"
+  nextIcon="wallpaper"
+/>

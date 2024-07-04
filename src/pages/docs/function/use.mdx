@@ -1,0 +1,92 @@
+import Code from "@code"
+import DocLink from "@nav"
+import {Link} from "react-router-dom"
+
+# `use` Function
+
+`use` is a function that will store your tenoxui configuration. Currently, there's only two config property you can set, `property` and `breakpoints`
+
+## API
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`use({
+  property: [...],
+  breakpoint: [...],
+  values: {...}
+});
+`}</Code>
+
+### 1. Property
+
+This parameter will store all types and properties that will used, example :
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`{
+  m: "margin",
+  tc: "color",
+  box: ["width", "height"],
+}`}</Code>
+
+See more example at <Link to="/docs/core/type-and-property">Type & Property</Link>.
+
+### 2. Breakpoint
+
+This parameter will set all of your breakpoints for responsive feature.
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`[
+  { name: "xl", min: 768 },
+  { name: "xl-only", min: 768, max: 1028 },
+  { name: "max-xl", max: 1028 },
+]`}</Code>
+
+## Initializing Property
+
+Before you use tenoxui, you need to add types and properties for tenoxui to execute. You can use `use` function `when` you needed more customization and also can access to `makeStyle` and `makeStyles` function.
+
+If you only need the `tenoxui` function or use styles from classnames only like :
+
+<Code className="my-1rem" lang="html" codeOnly>{`<div class="bg-red p-2rem my-1rem br-6px">...</div>`}</Code>
+
+You can add the property directly in `tenoxui` function, like this :
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`tenoxui({
+  bg: "background",
+  p: "padding",
+  my: ["marginTop", "marginBottom"]
+});`}</Code>
+
+And, if you want to use more complexity, you can use `use` function, like this :
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`use({
+  property: [{
+    bg: "background",
+    p: "padding",
+    my: ["marginTop", "marginBottom"]
+  }]
+});
+
+makeStyles({
+  body: "bg-red p-2rem h-mn-100vh",
+  // more selector
+});
+
+tenoxui(); // initialize tenoxui`}</Code>
+
+We defined `bg-red` inside `makeStyles` function, but we can pass new styles inside of the element, like this :
+
+<Code className="my-1rem" lang="html" codeOnly>{`<body class="bg-blue">
+  <main class="m-1rem p-10px">...</main>
+</body>`}</Code>
+
+What's the different between this :
+
+<Code className="my-1rem" lang="javascript" codeOnly>{`tenoxui({
+  bg: "background",
+  p: "padding",
+  my: ["marginTop", "marginBottom"]
+});
+
+makeStyles({
+  body: "bg-red p-2rem h-mn-100vh",
+  // more selector
+});`}</Code>
+
+By using this approach, you can't change the styles from `makeStyles` function due to how JavaScript work, it's execute the first function. (it's basic).

@@ -34,9 +34,9 @@ const DocLink: React.FC<{
   };
 
   return (
-    <div className={`w-full mv-2rem ${className}`}>
+    <div className={`w-full mt-3rem ${className}`}>
       {/* Edit this page */}
-      <div className="w-full flex mb-2rem">
+      <div className="w-full flex mb-1.5rem">
         <a
           className="text-sm flex-center gap-6px tc-[--primary-500]"
           href={githubEditLink}
@@ -47,7 +47,7 @@ const DocLink: React.FC<{
           Edit this page on <i className="ti ti-github_circle"></i>
         </a>
       </div>
-      <div className="flex-center jc-[space-between] w-full">
+      <div className="flex-center jc-[space-between] w-full mb-1rem">
         {/* Link to prev or next page */}
         {prev && (
           <Link
@@ -69,7 +69,7 @@ const DocLink: React.FC<{
         {next && (
           <Link
             to={next}
-            className={`doc-link-bottom flex ai-[flex-end] fd-column text-base px-12px border bw-right-1px bc-[--primary-500] ${
+            className={`doc-link-bottom flex ai-[flex-end] fd-column text-base pr-12px border bw-right-1px bc-[--primary-500] ${
               !prev ? "ml-auto" : ""
             }`}
           >

@@ -9,7 +9,7 @@ const App = () => {
 
     // apply styles directly
     makeStyles({
-      body: "bg-#21272f tc-#e4e6e8 family-[sans-serif] m-0 p-2rem",
+      body: "bg-#21272f tc-#e4e6e8 family-[sans-serif] m-0 p-2rem"
     });
 
     // init tenoxui
@@ -20,3 +20,13 @@ const App = () => {
 };
 
 export default App;
+// {
+//   p: {
+//     property: "padding",
+//     value: "4rem {value} 2rem {value}"
+//   },
+//   bg:{
+//     property: "backgroundImage",
+//     value:"linear-gradient(to right, red, {value})"
+//   }
+// }

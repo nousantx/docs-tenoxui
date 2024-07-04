@@ -1,5 +1,6 @@
-import Code from "@component/code";
-import Tips from "@component/tips";
+import Code from "@code";
+import Tips from "@tips";
+import DocLink from "@nav";
 
 # How it works?
 
@@ -51,7 +52,7 @@ TenoxUI is a CSS framework that will give styles through element style or called
 
 ## Template
 
-There's still no stable or correct ways to use tenoxui, we still experimenting for the best usage of tenoxui. Since it uses `DOM` to work with, the styles must loaded immediately after the page fire up. But, try tenoxui with `react + vite`. Here's the simple boilerplate you can ise
+There's still no stable or correct ways to use tenoxui, we still experimenting for the best usage of tenoxui. Since it uses `DOM` to work with, the styles must loaded immediately after the page fire up. But, try tenoxui with `react + vite`. Here's the simple boilerplate you can adapt :
 
 ### HTML Template
 
@@ -115,9 +116,9 @@ import tenoxui, { use, makeStyles } from "tenoxui";
 import property from "@tenoxui/property";
 
 const App = () => {
-useLayoutEffect(() => {
-// use tenoxui property library
-use({ property: [property] });
+  useLayoutEffect(() => {
+    // use tenoxui property library
+    use({ property: [property] });
 
     // apply styles directly
     makeStyles({
@@ -126,10 +127,9 @@ use({ property: [property] });
 
     // init tenoxui
     tenoxui();
+  }, []);
 
-}, []);
-
-return <h1 className="tc-#ccf654">Hello World!</h1>;
+  return <h1 className="tc-#ccf654">Hello World!</h1>;
 };
 
 export default App;`}</Code>
@@ -139,3 +139,10 @@ export default App;`}</Code>
   elements, because tenoxui using DOM to handle the styling. It's basically just
   imitating fast reload xD.
 </Tips>
+
+<DocLink
+  prev="/docs/classes"
+  prevIcon="style"
+  next="/docs/classes/background"
+  nextIcon="wallpaper"
+/>

@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { styler } from "@styler";
 import Breadcrumbs from "@component/breadcrumbs";
-import DocLink from "@component/docs-navigation";
 import OnThisPage from "./_components/on-this-page";
 import DocsSidebar from "./_components/docs-sidebar";
 import { generateTitle } from "@/utils/get-title";
@@ -36,14 +35,6 @@ const Layout = () => {
               <Outlet />
             </article>
           </div>
-          <footer className="mt-3rem">
-            <DocLink
-              prev="/docs/classes/border"
-              prevIcon="border_style"
-              next="/docs/classes/border"
-              nextIcon="border_style"
-            />
-          </footer>
         </section>
         <aside className="flex-grow-0 flex-shrink-1 flex-basis-15% position-sticky t-0 p-2rem h-100vh max-2xl:d-none 2xl:d-block bw-0 bw-left-1px bw-top-1px bs-solid border-neutral-500 border-opacity-0.3">
           <OnThisPage />

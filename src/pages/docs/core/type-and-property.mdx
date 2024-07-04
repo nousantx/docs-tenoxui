@@ -1,0 +1,175 @@
+import Code from "@code"
+import DocLink from "@nav"
+import Tips from "@tips"
+import {Link} from "react-router-dom"
+
+# Type and Property
+
+Types and propeties is class name settings for tenoxui, it's just bunch of classname prefix and declared property for its prefix. Example :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{
+  // type: property
+  m: "margin",
+  fs: "fontSize"
+}`}</Code>
+
+## Type
+
+`Type` is the prefix that will triggered its property, this is also can be called as a shorthand that will trigger the property. In the example above, the `m` and `fs` is what we called type.
+
+## Property
+
+`Property` is what css property will given to the `type` we declared. From the example above, the `margin` and `fontSize` is called property. So basically, `property` is CSS property where the `type` should give the values. 
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{ 
+  p: "padding",
+  tc: "color",
+  "my-type": "backgroundColor" 
+}`}</Code>
+
+`Property` is not always a `CSS property`, you can also define `CSS variable` using it, and instead of set value for the CSS property, it will set values for the defined property.
+
+## All Propeties
+
+This is what property you can add or use :
+
+### 1. Single CSS Property
+
+This is simple type with `single` CSS property :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{ 
+  m: "margin",
+  over: "overflow",
+  ratio: "aspectRatio",
+}`}</Code>
+
+<Tips>
+
+You can also define property using `kebab-type`, like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{ 
+  ai: "align-items",
+  "w-mx": "max-width"
+}`}</Code>
+</Tips>
+
+
+### 2. Multiple Properties
+
+You can also use an array with multiple `CSS propeties` inside of it. Here's some examples :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{ 
+  mx: ["marginLeft", "marginRight"],
+  box: ["width", "height"],
+  "flex-parent": ["alignItems", "justifyContent"],
+}`}</Code>
+
+As you can see, we define the `property` as array, and it will set values for both properties. Example :
+
+We define `mx` type for setting `margin-right` and `margin-left` propeties, so if you use it to your element like this :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="mx-2rem"></div>`}</Code>
+
+And it will rendered as :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="mx-2rem" style="margin-left: 2rem; margin-right: 2rem;"></div>`}</Code>
+
+So, it will set `2rem` for both properties.
+
+### 3. CSS Variable as Property
+
+You can also define `CSS variable` as the property, like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{` {
+  size: "--size",
+  "custom-color": "--my-color",
+  "var-bg": "--back",
+}`}</Code>
+
+Now, how can i use it? See [CSS Variable](/docs/core/css-variable).
+
+### 4. Prefixes
+
+Maybe you wanna add prefixes, you can add just like regular property :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`{
+  "web-tr": "-webkit-transition", // ✅ work
+  "web-tr": "webkitTransition", // ✅ work
+  "moz-br": "mozBorderRadius", // ✅ work
+}`}</Code>
+
+## 5. Custom Value
+
+You can also customize the value, you can define it like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem" isWrap showNumber codeOnly linesToHighlight={[5, 9]}>{`{
+  m: "margin",
+  p: {
+    property: "padding",
+    value: "4rem {value} 2rem {value}"
+  },
+  bg: {
+    property: "backgroundImage",
+    value: "linear-gradient(to right, red, {value})"
+  }
+}`}</Code>
+
+So, instead of defining the `type` with a string, we define it as an object that have 2 arguments. The first one is `property`, it's just what property will triggered by the `type`. `value` is a CSS value that will applied to the element by replacing the `{value}` with the value that added to the className, example :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="p-1rem bg-blue">Hello</div>`}</Code>
+
+The output will be like this :.
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div 
+  class="p-1rem bg-blue"
+  style="padding: 4rem 1rem 2rem 1rem;
+         background-image: linear-gradient(to right, red, blue);"
+>
+  Hello
+</div>`}</Code>
+
+<Tips variant="info">
+The examples above can be used direclty inside `use` function, like this :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`use({ 
+  property: [{
+    m: "margin",
+    mx: ["marginLeft", "marginRight"],
+  }] 
+});`}</Code>
+
+Also, if you don't wanna add your types and properties one by one, we have a library that contain all types you may need, see [@tenoxui/property on GitHub](https://github.com/tenoxui/property).
+</Tips>
+
+<DocLink
+  prev="/docs/core/introduction"
+  prevIcon="flag"
+  next="/docs/core/values"
+  nextIcon="pin"
+/>

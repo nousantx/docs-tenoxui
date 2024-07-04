@@ -10,8 +10,11 @@
     "paths": {
       "@/*": ["./src/*"],
       "@style/*": ["./src/style/*"],
+      "@styler": ["./src/style/styler.ts"],
       "@component/*": ["./src/components/*"],
-      "@styler": ["./src/style/styler.ts"]
+      "@nav": ["./src/components/docs-navigation.tsx"],
+      "@code": ["./src/components/code.tsx"],
+      "@tips": ["./src/components/tips.tsx"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",

@@ -90,5 +90,10 @@ export const utility = {
   ".rounded-full": "br-9999px",
   ".none": "d-none",
   ".border": "bs-solid bw-0",
-  ".flex-center": "d-flex flex-parent-center"
+  ".flex-center": "d-flex flex-parent-center",
+  ".btn":
+    ".text-base .font-medium .rounded-md .flex-center gap-2px white-space-nowrap h-36px px-12px .transition-color tr-time-0.3s",
+  ".btn.icons": "box-36px",
+  ".btn span[class*='ms-'], .btn i.ti": ".text-lg",
+  ".btn-secondary": "tc-$neutral-950 bg-$neutral-50 hover:bg-$neutral-300"
 };

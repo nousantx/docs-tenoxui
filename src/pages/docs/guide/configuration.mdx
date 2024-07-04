@@ -1,0 +1,98 @@
+import Code from "@code"
+import DocLink from "@nav"
+import Tips from "@tips"
+
+# Configuration
+
+There's no specific way to configure tenoxui CSS, just include the `tenoxui` function, add some types and properties, and tenoxui is ready to use. If your framework can perform something like `onMounted` or `useLayoutEffect`, it'll works.
+
+## HTML
+
+You can add `DOMContentLoaded` event to your document to perform the styler :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`document.addEventListener("DOMContentLoaded", () => {
+  tenoxui({ text: "color" });
+});`}</Code>
+
+And that's the simplest way to use tenoxui for your project.
+
+## React
+
+Use `useLayoutEffect` instead of `useEffect` to make tenoxui fire up immediately when the page loaded :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  title="App.jsx"
+  showNumber>{`import { useLayoutEffect } from "react";
+import tenoxui from "tenoxui";
+
+const App = () => {
+  useLayoutEffect(() => {
+    tenoxui({ text: "color" });
+  }, []);
+
+  return <h1 className="text-red">Hello World!</h1>;
+};
+
+export default App;`}</Code>
+
+## Vue
+
+You can see this simple vue template, it will use `onMounted` to work with :
+
+<Code
+  lang="html"
+  className="my-1rem" 
+  title="App.vue"
+  showNumber>{`<template>
+  <h1 class="text-red">Hello World!</h1>
+</template>
+
+<script>
+import { onMounted } from "vue";
+import tenoxui from "tenoxui";
+
+export default {
+  name: "App",
+  setup() {
+    onMounted(() => {
+      tenoxui({ text: "color" });
+    });
+  }
+};
+</script>`}</Code>
+
+## Svelte
+
+Similiar to vue, you can use this as your reference :
+
+<Code
+  lang="html"
+  className="my-1rem" 
+  title="App.svelte"
+  showNumber>{`<script>
+  import { onMount } from "svelte";
+  import tenoxui from "tenoxui";
+  
+  onMount(() => {
+    tenoxui({text: "color"});
+  });
+</script>
+
+<main>
+  <h1 class="text-red">Hello World!</h1>
+</main>`}</Code>
+
+<Tips variant="warning">
+All the methods above was not entirely stable, if you have more better ways for styling, that's good. Configuration above was just how it works since tenoxui is use `DOM` for do the style, and must apply the styles as soon as possible.
+</Tips>
+
+<DocLink
+  prev="/docs/guide/start"
+  prevIcon="flag"
+  next="/docs/guide/configuration"
+  nextIcon="settings"
+/>

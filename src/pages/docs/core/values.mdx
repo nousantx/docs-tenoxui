@@ -1,0 +1,74 @@
+import Code from "@code"
+import DocLink from "@nav"
+import Tips from "@tips"
+import {Link} from "react-router-dom"
+
+# Values
+
+TenoxUI using `Regex` to scan the type and values. But all of this always have class like :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`type-{value}`}</Code>
+
+## All Possible Values
+
+In tenoxui, we are not define any `ready-to-use` value like `m-2`, `font-medium`, `container`, and so on. Instead, you can add the value you desire like `m-8px`, `fw-600`, and so on. And this is what values you can use inside tenoxui :
+
+### 1. Regular Value
+
+This is simple value you can use, it's included text, number, units, and all possible css property values. Example :
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<h1 class="fs-3.2em">3.2rem text</h1>
+<h1 class="tc-red">Red color text</h1>
+<h1 class="fw-800">Extra bold text</h1>
+<div class="w-100% opa-0.2 p-1.3rem bg-blue">...</div>`}</Code>
+
+### 2. Bracket's Value
+
+TenoxUI support custom values using `[]`. You may wondering when or where should i use the bracket value, and this is the conditions :
+1. Value that need space
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<h1 class="tc-[rgb(255\\_0\\_0\\_/\\_0.1)]">Hello</h1>`}</Code>
+
+2. Multi words value
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="d-[inline-flex]"></div>`}</Code>
+  
+3. Some complex value
+
+<Code
+  lang="html"
+  className="my-1rem" codeOnly>{`<div class="w-[calc(20px\\_+\\_var(--size,\\_5rem))]"></div>`}</Code>
+
+
+### 3. CSS Variable Value
+
+You can also get values from CSS variable. Example :
+
+<Code
+  lang="css"
+  className="my-1rem" codeOnly>{`:root {
+  --primary: #ccf654;
+}`}</Code>
+
+then, inside your element :
+
+<Code
+  lang="javascript"
+  className="my-1rem" codeOnly>{`<h1 class="tc-$primary">Its valid</h1>
+<h1 class="tc-[--primary]">this too</h1>
+<h1 class="tc-[var(--primary)]">Its also valid</h1>`}</Code>
+
+<DocLink
+  prev="/docs/core/type-and-property"
+  prevIcon="category"
+  next="/docs/classes/background"
+  nextIcon="wallpaper"
+/>

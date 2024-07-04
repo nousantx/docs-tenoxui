@@ -1,0 +1,91 @@
+import Code from "@code";
+import DocLink from "@nav";
+
+# CSS Variable
+
+CSS variables have access to the DOM, which means that you can create variables with local or global scope, change the variables with JavaScript, and change the variables based on media queries. - [W3School](https://www.w3schools.com/css/css3_variables.asp)
+
+## Working with CSS Variable
+
+In tenoxui, there's several ways to deal with `CSS variable`. Here's the examples :
+
+### 1. CSS File and Element Class Name
+
+In this exampls, you need to add some variables inside of CSS file. Example :
+
+<Code
+  lang="css"
+  className="my-1rem"
+  codeOnly
+>{`:root {
+  --primary: #ccf654;
+  --red-400: #f65454;
+}`}</Code>
+
+Now, you can access the value inside of element classname using `$`, like this :
+
+<Code
+  lang="html"
+  className="my-1rem"
+  codeOnly
+>{`<h1 class="tc-$primary">Hello World!</h1>`}</Code>
+
+Note: `tc` is type for `color` property!
+
+
+### 2. Custom CSS Variable Class Name
+
+You can also add custom variable directly inside your element class name, like this :
+
+<Code
+  lang="html"
+  className="my-1rem"
+  codeOnly
+>{`<h1 class="[--primary]-blue tc-$primary">Hello World!</h1>`}</Code>
+
+Instead of using CSS variables from CSS file, it will add `--primary` variable to the element.
+
+### 3. Custom Type and Property
+
+You can also add custom for the type and property. Instead of adding CSS property, you can add CSS variables instead. Example :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  codeOnly
+>{`use({ property: [{
+  // regular property
+  tc: "color",
+  bg: "background",
+  m: "margin",
+  // css variable property
+  "my-color": "--my-color",
+  "bg-opacity": "--bg-opacity",
+}]});`}</Code>
+
+then, you can use it like this :
+
+<Code
+  lang="html"
+  className="my-1rem"
+  codeOnly
+>{`<h1 class="my-color-blue tc-$my-color">Hello World!</h1>`}</Code>
+
+## More
+
+All ways to access CSS variables :
+
+<Code
+  lang="javascript"
+  className="my-1rem"
+  codeOnly
+>{`type-$variable-name // ✅ this is valid
+type-[--variable-name] // ✅ this too
+type-[var(--variable-name)] // ✅ this is also valid`}</Code>
+
+<DocLink
+  prev="/docs/classes"
+  prevIcon="style"
+  next="/docs/classes/background"
+  nextIcon="wallpaper"
+/>

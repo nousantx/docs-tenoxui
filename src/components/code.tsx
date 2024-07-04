@@ -9,7 +9,7 @@ import htmlbars from "react-syntax-highlighter/dist/esm/languages/hljs/htmlbars"
 import html from "react-syntax-highlighter/dist/esm/languages/hljs/htmlbars";
 import xml from "react-syntax-highlighter/dist/esm/languages/hljs/xml";
 import css from "react-syntax-highlighter/dist/esm/languages/hljs/css";
-
+// import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("shell", shell);
@@ -49,7 +49,7 @@ const Code: React.FC<Code> = ({
     <div className={`w-full relative ${className}`}>
       {/* {copy && ( */}
       <div
-        className={`position-fixed t-2rem r--100% bg-neutral-800 text-neutral-100 ta-center br-4px p-8px px-1rem z-9999 d-flex flex-parent-center gap-8px tr-prop-all tr-time-0.3s tr-timing-ease z-9999 ${
+        className={`position-fixed t-2rem r--100% bg-neutral-800 bg-opacity-0.6 text-neutral-100 ta-center br-4px p-8px px-1rem z-9999 d-flex flex-parent-center gap-8px tr-prop-all tr-time-0.3s tr-timing-ease z-9999 ${
           copy ? "opa-1 r-1rem" : "opa-0 r--100%"
         }`}
       >
@@ -57,18 +57,20 @@ const Code: React.FC<Code> = ({
         Code copied successfully!
       </div>
       {!codeOnly ? (
-        <div className={`w-full flex jc-[space-between] items-center bg-neutral-800 p-10px radius-top-4px`}>
+        <div
+          className={`w-full flex jc-[space-between] items-center bg-neutral-800 bg-opacity-0.4 py-8px px-1rem radius-top-4px`}
+        >
           <p className="text-sm font-medium flex flex-parent-center gap-6px">
             <span className="ms-sharp text-base text-primary-500">draft</span>
             {title || lang}
           </p>
           {copy ? (
-            <button className="btn flex flex-parent-center gap-6px text-neutral-200">
+            <button className="btn h-auto flex flex-parent-center gap-6px text-neutral-200">
               <span className="ms-sharp fs-16px">done</span> <p className="text-sm font-medium">Copied</p>
             </button>
           ) : (
             <button
-              className="btn flex flex-parent-center gap-6px text-neutral-200"
+              className="btn h-auto flex flex-parent-center gap-6px text-neutral-200"
               onClick={() => {
                 const textarea = document.createElement("textarea");
                 textarea.value = codeString;
@@ -101,7 +103,9 @@ const Code: React.FC<Code> = ({
         lineProps={(lineNumber: number) => {
           const style: React.CSSProperties = { display: "block", width: "fit-content" };
           if (linesToHighlight.includes(lineNumber)) {
-            style.backgroundColor = "rgb(var(--tx_neutral-400) / 0.4)";
+            style.backgroundColor = "rgb(var(--tx_amber-200) / 0.09)";
+            //style.whiteSpace = "nowrap";
+            // style.textWrap = "nowrap";
           }
           return { style };
         }}

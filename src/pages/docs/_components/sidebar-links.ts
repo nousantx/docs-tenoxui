@@ -26,7 +26,16 @@ export const Links = [
     content: [
       { name: "use function", route: "/use" },
       { name: "makeStyle", route: "/makestyle" },
-      { name: "tenoxui", route: "/tenoxui" },
+      { name: "tenoxui", route: "/tenoxui" }
+    ]
+  },
+  {
+    title: "Packages",
+    base: "/package",
+    content: [
+      { name: "tenoxui/core", route: "/core" },
+      { name: "tenoxui/property", route: "/lib" },
+      { name: "tenoxui/cli", route: "/cli" }
     ]
   }
 ];
